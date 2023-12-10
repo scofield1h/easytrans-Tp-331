@@ -1,0 +1,17 @@
+<!-- templates/lister_hotels.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Hôtels</title>
+</head>
+<body>
+    <h1>Liste des Hôtels</h1>
+    <ul>
+        {% for hotel in hotels %}
+            <li>{{ hotel.nom_hotel }} - {{ hotel.emplacement }} - {{ hotel.categorie_etoiles }} - {{ hotel.tarifs_chambres }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

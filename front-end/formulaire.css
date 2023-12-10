@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>easy Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Formulaire de Recherche</title>
+
+    <style>
+        /* Vos styles précédents restent inchangés */
+    </style>
+
+    <script>
+        function rechercher() {
+            // Récupère les éléments du formulaire
+            var position = document.getElementById("position");
+            var budget = document.getElementById("budget");
+            var destination = document.getElementById("destination");
+
+            // Vérifie si tous les champs sont remplis
+            if (position.value !== "" && budget.value !== "" && destination.value !== "") {
+                // Affiche les résultats (vous pouvez ajouter ici la logique de recherche)
+                document.getElementById("resultats").innerHTML = "Résultats de la recherche...";
+                // Cache la notification
+                document.getElementById("notification").style.display = "none";
+
+                // Réinitialise la couleur des champs vides
+                position.style.backgroundColor = "";
+                budget.style.backgroundColor = "";
+                destination.style.backgroundColor = "";
+            } else {
+                // Affiche la notification si des champs sont manquants
+                document.getElementById("notification").style.display = "block";
+
+                // Change la couleur des champs vides
+                if (position.value === "") {
+                    position.style.backgroundColor = "#ffcccc";
+                }
+                if (budget.value === "") {
+                    budget.style.backgroundColor = "#ffcccc";
+                }
+                if (destination.value === "") {
+                    destination.style.backgroundColor = "#ffcccc";
+                }
+            }
+        }
+    </script>
+  <!-- =======================================================
+  * Template Name: Gp
+  * Updated: Nov 25 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-lg-between">
+
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">EaSY<span>TRANS</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">acceuil</a></li>
+          <li><a class="nav-link scrollto" href="#about"></a></li>
+          <li><a class="nav-link scrollto " href="#portfolio"></a></li>
+          <li><a class="nav-link scrollto" href="#services">nos atouts</a></li>
+          <li class="dropdown"><a href="#"><span>Contact</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <a href="#" class="twitter"><i class="bx bxl-facebook"></i> facebook</a>
+             <a href="#" class="twitter"><i class="bx bxs-envelope"></i>E-mail</a>
+              <a href="#" class="twitter"><i class='bx bx-x'></i>X</a>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">partenaires</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="#about" class="get-started-btn scrollto">Connection</a>
+       <a href="#about" class="get-started-btn scrollto">Inscription  </a>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <div class="container">
+        <form id="searchForm">
+            <div class="form-group">
+                <label for="position"><i class="fas fa-map-marker-alt"></i> Position:</label>
+                <input type="text" id="position" name="position" placeholder="Entrez la position">
+            </div>
+
+            <div class="form-group">
+                <label for="budget"><i class="fas fa-money-bill-wave"></i> Budget:</label>
+                <input type="text" id="budget" name="budget" placeholder="Entrez le budget">
+            </div>
+
+            <div class="form-group">
+                <label for="destination"><i class="fas fa-plane"></i> Destination:</label>
+                <input type="text" id="destination" name="destination" placeholder="Entrez la destination">
+            </div>
+
+            <button type="button" onclick="rechercher()" onmouseover="this.style.backgroundColor='#ff6600'" onmouseout="this.style.backgroundColor='#ff9966'">Rechercher</button>
+        </form>
+
+        <div class="resultats" id="resultats">
+            <!-- Les résultats seront affichés ici -->
+        </div>
+
+        <div class="notification" id="notification">
+            Veuillez remplir tous les champs.
+        </div>
+    </div>
+
+<!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>chosissez easy trans </h2>
+          <p> une equipe a votre service continue </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class='bx bxs-wink-smile' ></i></div>
+              <h4><a href="">Convivialite</a></h4>
+              <p> Explorez notre site en toute simplicité. Une navigation intuitive pour une expérience utilisateur sans effort</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href=""></a>Qualite</h4>
+              <p>Découvrez une source d'informations fiables. Notre contenu de qualité est votre guide vers une expérience enrichissante</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="">Diversite</a></h4>
+              <p>Explorez un vaste répertoire de sujets. Notre site propose une diversité de contenus pour satisfaire toutes vos curiosités</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4><a href="">Accessibilité</a></h4>
+              <p>profitez de notre site ou que vous soyez</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-slideshow"></i></div>
+              <h4><a href="">Simplicite</a></h4>
+              <p>Naviguez en toute simplicité. Notre site offre une expérience épurée,</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+             <div class="icon"><i class='bx bxs-check-shield'></i> </div>
+              <h4><a href="">Sécurité</a></h4>
+              <p>Votre sécurité est notre priorité. Parcourez notre site en toute confiance</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+   <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row no-gutters">
+          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" data-aos-delay="100"></div>
+          <div class="col-xl-7 ps-4 ps-lg-5 pe-4 pe-lg-1 d-flex align-items-stretch" data-aos="fade-left" data-aos-delay="100">
+            <div class="content d-flex flex-column justify-content-center">
+              <h3>nos statistiques </h3>
+              <p>
+              </p>
+              <div class="row">
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-emoji-smile"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="2" class="purecounter"></span>
+                    <p><strong>Happy Clients</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-journal-richtext"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="2" class="purecounter"></span>
+                    <p><strong>Projects</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-clock"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="35" data-purecounter-duration="4" class="purecounter"></span>
+                    <p><strong>Years of experience</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-award"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="4" class="purecounter"></span>
+                    <p><strong>Awards</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+    
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>Easy<span>trans</span></h3>
+              <p>
+                Yaounde<br>
+                Yde bp: 237, Cameroun<br><br>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">acceuil</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">nos atouts</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">contacts</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">politique de confidentialite</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>nos partenaires </h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">partenaire 1</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">partenaire 2</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">partenaire 3</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">partenaire 4</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">partenaire 5</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <p>inscrivez vous et ameliorez votre expérience selon vos préférences et recevez des recommandations adaptées à vos intérêts.</p>
+             <a href="#about" class="get-started-btn scrollto">Inscription  </a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>EasyTrans</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">scofield using bootstrap</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

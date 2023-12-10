@@ -1,0 +1,17 @@
+<!-- templates/lister_restaurants.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Restaurants</title>
+</head>
+<body>
+    <h1>Liste des Restaurants</h1>
+    <ul>
+        {% for restaurant in restaurants %}
+            <li>{{ restaurant.nom_restaurant }} - {{ restaurant.emplacement }} - {{ restaurant.type_cuisine }} - {{ restaurant.menu }} - {{ restaurant.tarifs }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

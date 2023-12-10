@@ -1,0 +1,17 @@
+<!-- templates/lister_agences_voyage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Agences de Voyage</title>
+</head>
+<body>
+    <h1>Liste des Agences de Voyage</h1>
+    <ul>
+        {% for agence_voyage in agences_voyage %}
+            <li>{{ agence_voyage.nom_agence }} - {{ agence_voyage.emplacement }} - {{ agence_voyage.classe_voyage }} - {{ agence_voyage.tarifs }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

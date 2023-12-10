@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Easy Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style_formulaire.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Vos styles précédents restent inchangés */
+        #map {
+            height: 300px;
+        }
+    </style>
+
+    <script>
+        function initMap() {
+            // Création de la carte avec Leaflet et OpenStreetMap
+            var map = L.map('map').setView([0, 0], 2); // Centrez la carte initialement à un emplacement par défaut, par exemple [0, 0] pour l'océan Atlantique
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Ajoutez un gestionnaire de clic pour mettre à jour la position à partir du clic de l'utilisateur
+            map.on('click', function (e) {
+                var positionInput = document.getElementById('position');
+                positionInput.value = e.latlng.lat + ', ' + e.latlng.lng;
+            });
+        }
+
+        function rechercher() {
+            // Récupère les éléments du formulaire
+            var position = document.getElementById("position");
+            var budget = document.getElementById("budget");
+            var destination = document.getElementById("destination");
+
+            // Vérifie si tous les champs sont remplis
+            if (position.value !== "" && budget.value !== "" && destination.value !== "") {
+                // Affiche les résultats (vous pouvez ajouter ici la logique de recherche)
+                document.getElementById("resultats").innerHTML = "Résultats de la recherche...";
+                // Cache la notification
+                document.getElementById("notification").style.display = "none";
+
+                // Réinitialise la couleur des champs vides
+                position.style.backgroundColor = "";
+                budget.style.backgroundColor = "";
+                destination.style.backgroundColor = "";
+            } else {
+                // Affiche la notification si des champs sont manquants
+                document.getElementById("notification").style.display = "block";
+
+                // Change la couleur des champs vides
+                if (position.value === "") {
+                    position.style.backgroundColor = "rgba(255, 165, 0, 0.2)";
+                }
+                if (budget.value === "") {
+                    budget.style.backgroundColor = "rgba(255, 165, 0, 0.2)";
+                }
+                if (destination.value === "") {
+                    destination.style.backgroundColor = "rgba(255, 165, 0, 0.2)";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="initMap()">
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+                <div class="col-xl-6 col-lg-8">
+                    <!-- Votre formulaire ici -->
+                    <div class="container">
+                        <form id="searchForm">
+                            <div class="form-group">
+                                <label for="position"><i class="fas fa-map-marker-alt"></i> Position:</label>
+                                <input type="text" id="position" name="position" placeholder="Entrez la position">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget"><i class="fas fa-money-bill-wave"></i> Budget:</label>
+                                <input type="text" id="budget" name="budget" placeholder="Entrez le budget">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="destination"><i class="fas fa-map-marked"></i> Destination:</label>
+                                <input type="text" id="destination" name="destination" placeholder="Entrez la destination">
+                            </div>
+
+                            <button type="button" onclick="rechercher()" onmouseover="this.style.backgroundColor='#ff6600'" onmouseout="this.style.backgroundColor='#ff9966'">Rechercher</button>
+                        </form>
+
+                        <div class="resultats" id="resultats">
+                            <!-- Les résultats seront affichés ici -->
+                        </div>
+
+                        <div class="notification" id="notification">
+                            Veuillez remplir tous les champs (les champs coloriés).
+                        </div>
+                    </div>
+                    <!-- Fin du formulaire -->
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+    <!-- Nouvelle partie pour la carte -->
+    <div id="map"></div>
+
+    <!-- ... Suite de votre code HTML existant ... -->
+
+    <!-- Vendor JS Files -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- ... Suite de votre code JS existant ... -->
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
+
